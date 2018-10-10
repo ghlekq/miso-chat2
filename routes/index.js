@@ -61,7 +61,8 @@ router.get('/room/:id', async (req, res, next) => {
     return res.render('chat', {
       room,
       title: room.title,
-      chats,
+      chats:[],
+      number:(rooms&&rooms[req.params.is]&&rooms[req.param.id].length+1) || 1,
       user: req.session.color,
     });
   } catch (error) {
